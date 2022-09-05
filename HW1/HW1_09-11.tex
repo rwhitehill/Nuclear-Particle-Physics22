@@ -1,0 +1,243 @@
+\def\duedate{09/11/22}
+\def\HWnum{1}
+\input{../preamble.tex}
+
+\begin{document}
+    
+\prob{1.1}{
+If a charged particle is undeflected in passing through uniform crossed electric and magnetic fields $\va*{E}$ and $\va*{B}$ (mutually perpendicular and both perpendicular to the direction of motion), what is its velocity?
+If we now turn off the electric field, and the particle moves in an arc of radius $R$, what is its charge-to-mass ratio?
+}
+
+We can design our coordinate system such that $\va*{E}=E \vu*{y}$, $\va*{B}=B \vu*{z}$, and $\va*{v} = v \vu*{x}$.
+The Lorentz force for a charged particle passing undeflected through these crossed electric and magnetic fields is 
+\begin{align}
+    \label{eq:undeflected-vel}
+    0 &= q(\va*{E} + \va*{v} \cross \va*{B}) = q(E - vB)\vu*{y} \\ 
+    &\Rightarrow \eqbox{
+        v = \frac{E}{B}
+    }   
+.\end{align}
+Now, if we turn of the electric field, then the electron undergoes uniform circular motion of radius $R$
+\begin{align}
+    \label{eq:q-to-m}
+    m \frac{1}{R}\Bigl( \frac{E}{B} \Bigr)^2 = q\Bigl( \frac{E}{B} \Bigr) B \Rightarrow 
+    \eqbox{
+        \frac{q}{m} = \frac{E}{B^2} 
+    } 
+\end{align}
+
+
+\prob{1.3}{
+In the period before the discovery of the neutron, many people thought that the nucleus consisted of protons and \textit{electrons}, with the atomic number equal to the excess number of protons.
+Beta decay seemed to support this idea -- after all, electrons come popping out; doesn't that imply that there were electrons inside? 
+Use the position-momentum uncertainty relation, $\Delta x \Delta p \geq \hbar/2$, to estimate the minimum momentum of an electron confined to a nucleus (radius \qty{e-13}{\centi\m}).
+From the relativistic energy-momentum relation, $E^2 - \va*{p}^2c^2 = m^2c^{4}$, determine the corresponding energy and compare it with that of an electron emitted in, say, the beta decay of tritium.
+}
+
+If we set $\Delta x = \qty{e-13}{\centi\m}$, then the minimum momentum of the electron emitted from the nucleus via beta decay is 
+\begin{eqnarray}
+    \label{eq:momentum-uncertainty}
+    p \approx \Delta p \geq \frac{\hbar}{2 \Delta x} = \qty{5.273e-22}{\kg\m\per\s}
+.\end{eqnarray}
+Plugging this into the energy-momentum relation
+\begin{eqnarray}
+    \label{eq:energy-from-momentum}
+    \eqbox{
+        E = c^2\sqrt{\va*{p}^2 + m^2c^2} = \qty{1.11}{\mega\eV}~?
+    }
+.\end{eqnarray}
+The typical energy of a beta emission from tritium is approximately \qty{0.019}{\mega\eV}.
+Obviously, our model with the electron being inside the nucleus is incorrect, predicting an emitted energy roughly 6 times the observed value.
+
+
+\prob{1.4}{
+The \textit{Gell-Mann/Okubo mass formula} relates the masses of members of the baryon octet (ignoring small differences between $p$ and $n$); $\Sigma^{+}$, $\Sigma^{0}$, and $\Sigma^{-}$; and $\Xi^{0}$ and $\Xi^{-}$):
+\begin{eqnarray}
+    \label{eq:mass-formula}
+    2(m_{N} + m_{\Xi}) = 3m_{\Lambda} + m_{\Sigma}
+.\end{eqnarray}
+Using this formula, together with the known masses of the \textit{nucleon} $N$ (use the average of $p$ and $n$), $\Sigma$ (again, use the average), and $\Xi$ (ditto), `predict' the mass of the $\Lambda$.
+How close do you come to the observed value?
+}
+
+The \textit{PDG} lists the following masses (in units where $c = 1$) to the nearest integer
+\begin{itemize}
+    \item $m_{p} = \qty{938}{\MeV}$
+    \item $m_{n} = \qty{931}{\MeV}$ ?
+    \item $m_{\Xi^{0}} = \qty{1314}{\MeV}$
+    \item $m_{\Xi^{-}} = m_{\Xi^{+}} = \qty{1321}{\MeV}$
+    \item $m_{\Sigma^{+}} = \qty{1189}{\MeV}$
+    \item $m_{\Sigma^{0}} = \qty{1192}{\MeV}$
+    \item $m_{\Sigma^{-}} = \qty{1197}{\MeV}$
+\end{itemize}
+Hence,
+\begin{eqnarray}
+    \label{eq:mass-Lambda}
+    \eqbox{
+    m_{\Lambda} = \frac{1}{3}\Bigl[ 2(m_{N} + m_{\Xi}) - m_{\Sigma} \Bigr] = \qty{1101}{\mega\eV} 
+}
+.\end{eqnarray}
+The \textit{PDG} lists the mass of $\Lambda$ as \qty{1115}{\mega\eV}, which is only about 1\% larger than our `prediction'.
+
+
+\prob{1.7}{}
+
+(a) Members of the baryon decuplet typically decay after \qty{e-23}{\s} into a lighter baryon (from the baryon octet) and a meson (from the psuedo-scalar meson octet).
+Thus, for example, $\Delta^{++} \rightarrow p^{+} + \pi^{+}$.
+List all decay modes of this form for the $\Delta^{-}$, $\Sigma^{*+}$, and $\Xi^{*-}$.
+Remember that these decays must conserve charge and strangeness (they are \textit{strong} interactions)
+
+For the following reactions, we must have the baryon from the decuplet decay into one baryon from the baryon octet and a meson from the meson octet.
+We also must have decays that respect $S_{\rm baryon} = S'_{\rm baryon} + S_{\rm meson}$ and $Q_{\rm baryon} = Q'_{\rm baryon} + Q_{\rm meson}$, where the unprimed and primed variables with the subscript ``baryon'' represent the original and decay baryons, respectively.
+
+For the $\Delta^{-}$, we must have the total strangeness be equal to $0$ and the charge be $-1$, giving possible reactions as
+\begin{align}
+    \label{eq:decay-modes-delta}
+    \eqbox{
+    \Delta^{-} \rightarrow 
+    \begin{cases}
+    \Sigma^{-} + K^{0} \\
+    n + \pi^{-}
+    \end{cases}
+}
+.\end{align}
+
+For the $\Sigma^{*+}$, we must have the total strangeness be equal to $+1$ and the charge be $1$, giving possible reactions as
+\begin{eqnarray}
+    \label{eq:decay-modes-sig_star_plus}
+    \eqbox{
+    \Sigma^{*+} \rightarrow 
+    \begin{cases}
+    \Sigma^{+} + \pi^{0} \\
+    \Sigma^{+} + \eta \\
+    p + \overline{K}^{0} \\
+    \Xi^{0} + \pi^{+} \\
+    \Sigma^{0} + \pi^{+} \\
+    \Lambda^{0} + \pi^{+}
+    \end{cases}
+    }    
+.\end{eqnarray}
+
+For the $\Xi^{*-}$, we must have the total strangeness be equal to $-2$ and the charge be $-1$, giving possible reactions as 
+\begin{eqnarray}
+    \label{eq:decay-modes-Xi_star_minus}
+    \eqbox{
+    \Xi^{*-} \rightarrow 
+    \begin{cases}
+    \Xi^{0} + \pi^{-} \\
+    \Sigma^{0} + K^{-} \\
+    \Lambda^{0} + K^{-} \\
+    \Xi^{-} + \pi^{0} \\
+    \Xi^{-} + \eta \\
+    \Sigma^{-} + \overline{K}^{0}
+    \end{cases}
+}
+.\end{eqnarray}
+
+
+(b) In any decay, there must be sufficient mass in the original particle to cover the masses of the decay products.
+Check each of the decays you proposed in part (a) to see which ones meet this criterion.
+The others are kinematically forbidden.
+
+For the decays above, we can rule out other forbidden reactions based on conservation of energy, which implies that the $m_{\rm baryon} = m'_{\rm baryon} + m_{\rm meson}$.
+Thus, we have the possible decays
+\begin{align}
+    \label{eq:decay-modes-delta-mass}
+    \eqbox{
+    \Delta^{-} \rightarrow n + \pi^{-}
+}
+,\end{align}
+for the $\Delta^{-}$,
+\begin{eqnarray}
+    \label{eq:decay-modes-sig_star_plus-mass}
+    \eqbox{
+    \Sigma^{*+} \rightarrow 
+    \begin{cases}
+    \Sigma^{+} + \pi^{0} \\
+    \Sigma^{0} + \pi^{+} \\
+    \Lambda^{0} + \pi^{+}
+    \end{cases}
+    }    
+\end{eqnarray}
+for the $\Sigma^{*+}$, and 
+\begin{eqnarray}
+    \label{eq:decay-modes-Xi_star_minus-mass}
+    \eqbox{
+    \Xi^{*-} \rightarrow 
+    \begin{cases}
+    \Xi^{0} + \pi^{-} \\
+    \Xi^{-} + \pi^{0} \\
+    \end{cases}
+}
+\end{eqnarray}
+for the $\Xi^{*-}$.
+
+\prob{1.14}{
+Using four quarks ($u$, $d$, $s$, and $c$) construct a table of all the possible baryon species.
+How many combinations carry a charm of $+1$?
+How many carry charm $+2$,
+and $+3?$
+}
+
+The possible baryon species that can be constructed with four quarks can be determined by listing out all the combinations (with replacement) as in \tref{possible-baryons}.
+
+\begin{table}[H]
+\begin{center}
+\input{./prob14.tex}
+\end{center}
+\caption{Table of possible quark combinations for baryons ($qqq$), their charge, upness, downess, strangeness, and charmness.}
+\label{tab:possible-baryons}
+\end{table}
+
+We can see here that there are 6 possible baryons with $+1$ charm, 3 with $+2$ charm, and 1 with $+3$ charm.
+
+\prob{1.15}{
+    Same as Problem 1.14, but this time for \textit{mesons}.
+}
+
+\begin{table}[H]
+\begin{center}
+\input{./prob15.tex}
+\end{center}
+\caption{Table of possible quark combinations for mesons ($q\bar{q}$) with four quarks, their charge, upness, downness, strangeness, and charmness.}
+\label{tab:possible-mesons}
+\end{table}
+
+We can see from the \tref{possible-mesons} lists $3$ mesons with $+1$ charm content (with 3 corresponding anti-particles carrying $-1$ charm content), but there are no mesons with $+2$ or $+3$ charm.
+It is demanded that this happen though since mesons are made of a quark-antiquark pair, so there can be at most one charm. 
+
+\prob{1.17}{
+A.~De~Rujula, H.~Georgi, and S.~L.~Glashow estimated the so-called \textit{constituent quark masses} to be $m_{u} = m_{d} = \qty{336}{\mega\eV}$, $m_{s} = \qty{540}{\MeV}$, and $m_{c} = \qty{1500}{\MeV}$.
+If they are right, the average binding energy for members of the baryon octet is \qty{-62}{\MeV}.
+If they all had \textit{exactly} this binding energy, what would their masses be?
+Compare the \textit{actual} values and give the percent error.
+}
+
+If we assume that each of the baryons in the baryon octet has the same binding energy of $m_{\rm bind} = \qty{-62}{\MeV}$, then the mass of any given baryon is calculated as follows:
+\begin{eqnarray}
+    \label{eq:mass-baryon}
+    m_{\rm baryon} = n_{u} m_{u} + n_{d} m_{d} + n_{c} m_{c} + m_{\rm bind}
+,\end{eqnarray}
+where $n_{f}$ is the number of a quark of flavor $f$ in the baryon.
+Following this prescription we tabulate the masses below and the percent error of this estimate from the value tabulated in the \textit{PDG}, where the percent error is calculated as
+\begin{eqnarray}
+    \label{eq:percent error}
+    \%~{\rm error} = \frac{{\rm estimate} - {\rm PDG}}{{\rm PDG}} \times 100\%
+,\end{eqnarray}
+which also indicates whether the estimate calculated here is smaller or larger than the \textit{PDG} value.
+From the errors, we see that the estimates are not too bad, being within at least 5\% across the board and within 1\% for the proton and neutron.
+\begin{table}[h!tb]
+\begin{center}
+\input{./prob17.tex}
+\caption{Calulated masses of particles in baryon octet using \eref{mass-baryon} and the percent difference from the values given by the PDG.}
+\label{tab:baryon-mass-table}
+\end{center}
+\end{table}
+
+
+
+
+
+
+\end{document}
