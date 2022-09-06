@@ -38,17 +38,17 @@ From the relativistic energy-momentum relation, $E^2 - \va*{p}^2c^2 = m^2c^{4}$,
 If we set $\Delta x = \qty{e-13}{\centi\m}$, then the minimum momentum of the electron emitted from the nucleus via beta decay is 
 \begin{eqnarray}
     \label{eq:momentum-uncertainty}
-    p \approx \Delta p \geq \frac{\hbar}{2 \Delta x} = \qty{5.273e-22}{\kg\m\per\s}
+    p \approx \Delta p \geq \frac{\hbar}{2 \Delta x} = \SI[per-mode=fraction]{3.3e-7}{\MeV\s\per\m}
 .\end{eqnarray}
 Plugging this into the energy-momentum relation
 \begin{eqnarray}
     \label{eq:energy-from-momentum}
     \eqbox{
-        E = c^2\sqrt{\va*{p}^2 + m^2c^2} = \qty{1.11}{\mega\eV}~?
+        E = \sqrt{\va*{p}^2c^2 + m^2c^4} = \qty{98.7}{\MeV}
     }
 .\end{eqnarray}
-The typical energy of a beta emission from tritium is approximately \qty{0.019}{\mega\eV}.
-Obviously, our model with the electron being inside the nucleus is incorrect, predicting an emitted energy roughly 6 times the observed value.
+The typical energy of a beta emission from tritium is approximately \qty{0.019}{\MeV}.
+Obviously, our model with the electron being inside the nucleus is incorrect, predicting an emitted energy roughly 5200 times the observed value.
 
 
 \prob{1.4}{
@@ -63,19 +63,15 @@ How close do you come to the observed value?
 
 The \textit{PDG} lists the following masses (in units where $c = 1$) to the nearest integer
 \begin{itemize}
-    \item $m_{p} = \qty{938}{\MeV}$
-    \item $m_{n} = \qty{931}{\MeV}$ ?
-    \item $m_{\Xi^{0}} = \qty{1314}{\MeV}$
-    \item $m_{\Xi^{-}} = m_{\Xi^{+}} = \qty{1321}{\MeV}$
-    \item $m_{\Sigma^{+}} = \qty{1189}{\MeV}$
-    \item $m_{\Sigma^{0}} = \qty{1192}{\MeV}$
-    \item $m_{\Sigma^{-}} = \qty{1197}{\MeV}$
+    \item $m_{N} = \qty{939}{\MeV}$
+    \item $m_{\Xi} = \qty{1318}{\MeV}$
+    \item $m_{\Sigma} = \qty{1107}{\MeV}$
 \end{itemize}
 Hence,
 \begin{eqnarray}
     \label{eq:mass-Lambda}
     \eqbox{
-    m_{\Lambda} = \frac{1}{3}\Bigl[ 2(m_{N} + m_{\Xi}) - m_{\Sigma} \Bigr] = \qty{1101}{\mega\eV} 
+    m_{\Lambda} = \frac{1}{3}\Bigl[ 2(m_{N} + m_{\Xi}) - m_{\Sigma} \Bigr] = \qty{1107}{\MeV} 
 }
 .\end{eqnarray}
 The \textit{PDG} lists the mass of $\Lambda$ as \qty{1115}{\mega\eV}, which is only about 1\% larger than our `prediction'.
