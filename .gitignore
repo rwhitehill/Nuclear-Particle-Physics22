@@ -7,4 +7,6 @@
 *.fdb_latexmk
 *.fls
 *.out
+*.dvi
+*.ps
 __pycache__/
