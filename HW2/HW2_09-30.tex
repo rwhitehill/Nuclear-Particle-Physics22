@@ -1,6 +1,7 @@
 \def\duedate{09/30/22}
 \def\HWnum{2}
 \input{../preamble.tex}
+\usepackage[compat=1.1.0]{tikz-feynman}
 
 \begin{document}
     
@@ -29,7 +30,7 @@ The quark content of the $\Sigma$ baryons is listed below in \tref{sig-quarks}
 \label{tab:sig-quarks}
 \end{table}
 
-The electric potential energy between charges $q_1$ and $q_2$ is given as $U(r) = q_1 q_2 / (4\pi\epsilon_0)$, so for an average separation distance of $\langle r \rangle = \SI{1}{\femto\m}$ we have
+The electric potential energy between charges $q_1$ and $q_2$ is given as $U(r) = q_1 q_2 / (4\pi\epsilon_0\langle r \rangle)$, so for an average separation distance of $\langle r \rangle = \SI{1}{\femto\m}$ we have
 \begin{eqnarray}
     \label{eq:potential-energies}
     \eqbox{
@@ -195,6 +196,131 @@ If we have the electron and positron annihilate then we may have a diagram of th
 \label{fig:prob3-same-order}
 \end{figure}
 
+
+\prob{4}{
+Consider the following possible decays and reactions.
+If the reaction is forbidden, state what conservation law is violated. 
+(Don't forget to check energy conservation for the decays.
+For the reactions, you can assume that there is enough energy in the initial state to make the reaction go.)
+If the reaction or decay is allowed, draw a diagram showing the leading mechanism, (i.e. strong, if possible, otherwise electromagnetic, if possible, otherwise weak).
+}
+
+(a) $e^{+}e^{-} \rightarrow \tau^{+}\tau^{-}$
+
+This is an allowed electromagnetic process.
+
+\begin{center}    
+\begin{tikzpicture}
+\begin{feynman}
+   \vertex (O) at (0,0);
+   \vertex[right=of O] (pr);
+   \vertex[left=of O] (pl);
+   \vertex[above left=of pl] (ep) {$e^{+}$};
+   \vertex[below left=of pl] (en) {$e^{-}$};
+   \vertex[above right=of pr] (tp) {$\tau^{+}$};
+   \vertex[below right=of pr] (tn) {$\tau^{-}$};
+
+   \diagram* {
+    (pl) -- [photon] (pr),
+    (ep) -- [anti fermion] (pl),
+    (en) -- [fermion] (pl),
+    (pr) -- [anti fermion] (tp),
+    (pr) -- [fermion] (tn),
+   };
+
+\end{feynman}
+\end{tikzpicture}
+\end{center}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{prob4/a.eps} 
+\end{center} 
+\end{figure}
+
+(b) $e^{+}e^{-} \rightarrow \pi^{+}\pi^{-}$
+
+This is an allowed process.
+The photon coming off the $u$ quark could also be a gluon line.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{prob4/b.eps} 
+\end{center} 
+\end{figure}
+
+(c) $e^{-}p \rightarrow e^{-}n\pi^{+}$ 
+
+This is an allowed strong process.
+
+(d) $e^{-}p \rightarrow \nu_{e}n\pi^{0}$
+
+(e) $\nu_{\mu}e^{-} \rightarrow \nu_{e}\mu^{-}$
+
+(f) $\overline{\nu}_{\mu}e^{-} \rightarrow \overline{\nu}_{e}\mu^{-}$
+
+(g) $\overline{\nu}_{e}e^{-} \rightarrow \pi^{-}\pi^{0}$
+
+(h) $\overline{\nu}_{e}e^{-} \rightarrow \nu_{e}e^{+}$ 
+
+(i) $\pi^{+}n \rightarrow p\gamma$
+
+(j) $e^{+}e^{-} \rightarrow \nu_{\mu}\overline{\nu}_{\mu}$
+
+(k) $p\overline{p} \rightarrow \Sigma^{+}\Sigma^{-}$
+
+(l) $\pi^{+}n \rightarrow \Lambda K^{+}$
+
+(m) $\tau^{-} \rightarrow K^{-}\nu_{\tau}$
+
+(n) $\Sigma^{0} \rightarrow \Lambda \pi^{0}$
+
+(o) $\psi \rightarrow \rho^{+}\pi^{-}$
+
+(p) $\pi^{+} \rightarrow e^{+}\nu_{e}$
+
+(q) $\Omega^{-} \rightarrow \Xi^{0}K^{-}$
+
+(r) $\Omega^{-} \rightarrow \Lambda K^{-}$
+
+(s) $n \rightarrow e^{-}\overline{\nu}_{e}\pi^{+}$
+
+(t) $B^{-} \rightarrow \psi K^{-}$
+
+
+\prob{5}{
+The second charmed particle to be discovered, the $D^{+}$, was found first in the decay mode $D^{+} \rightarrow K^{-}\pi^{+}\pi^{+}$.
+}
+
+(a) Draw a diagram for this decay.
+
+%\begin{figure}
+%\begin{center}
+%\begin{tikzpicture}
+%\begin{feynman}
+%    
+%\end{feynman}    
+%\end{tikzpicture}    
+%\end{center} 
+%\end{figure}
+
+(b) Ignoring its narrow width, the experimenters who discovered this mode knew immediately that it could not come from the strong decay of a meson.
+Why?
+
+Writing the decay in terms of quark content we have
+\begin{eqnarray}
+    \label{eq:decay-quark}
+    c \overline{d} \rightarrow s \overline{u} + u \overline{d} + u \overline{d}
+.\end{eqnarray}
+Obviously, flavor is not conserved in this decay, but the strong force conserves quark flavor in any process.
+So this decay cannot proceed strongly.
+
+\prob{6}{
+The decays $D^{0} \rightarrow K^{-}\pi^{+}$ and $D^{0} \rightarrow K^{+}\pi^{-}$ are both allowed.
+However, the former has a much higher branching ratio than the latter.
+Draw the diagrams for these two decays and estimate the ratio of branching fractions due to the Cabibo mixing angle factors.
+Compare your answer to the data summary in the PDG tables.
+}
 
 
 
