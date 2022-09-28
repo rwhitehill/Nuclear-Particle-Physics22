@@ -134,11 +134,38 @@ The lowest order diagram is shown below.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.3\textwidth]{prob2/prob2.pdf}
-\end{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[above left=of O] (al);
+    \vertex[below left=of O] (bl);
+    \vertex[above right=of O] (ar);
+    \vertex[below right=of O] (br);
+
+    \vertex[above left=of al] (pal);
+    \vertex[below left=of bl] (pbl);
+    \vertex[above right=of ar] (par);
+    \vertex[below right=of br] (pbr);
+
+    \diagram*{
+        (al) -- [fermion] (ar) -- [fermion] (br) -- [fermion] (bl) -- [fermion] (al),
+        (pal) -- [photon] (al),
+        (pbr) -- [photon] (br),
+        (pbl) -- [photon] (bl),
+        (par) -- [photon] (ar),
+    };
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
 \caption{Lowest order feynman diagram for $\gamma\gamma$ interactions. Note that we could draw similar diagrams by interchanging adjacent photon vertices.}
 \label{fig:delbruck-diagram}
 \end{figure}
+
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[width=0.3\textwidth]{prob2/prob2.pdf}
+%\end{center}
+%\end{figure}
 
 
 \prob{3}{
@@ -147,11 +174,38 @@ In $e^{+}e^{-}$ annihilation experiments, a second process occurs in which the e
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.3\textwidth]{prob3/prob3_graph.pdf}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[above left=of O] (epl) {$e^{+}$};
+    \vertex[above right=of O] (epr) {$e^{+}$};
+    \vertex[below=of O] (fu);
+    \vertex[below=of fu] (fl);
+    \vertex[right=of fu] (fb) {$\overline{f}$};
+    \vertex[right=of fl] (f) {$f$};
+    \vertex[below=of fl] (env);
+    \vertex[below left=of env] (enl) {$e^{-}$};
+    \vertex[below right=of env] (enr) {$e^{-}$};
+
+    \diagram* {
+        (epl) -- [anti fermion] (O) -- [anti fermion] (epr),
+        (enl) -- [fermion] (env) -- [fermion] (enr),
+        (O) -- [photon] (fu) -- [fermion] (fl) -- [photon] (env),
+        (fu) -- [anti fermion] (fb),
+        (fl) -- [fermion] (f),
+    };
+\end{feynman} 
+\end{tikzpicture} 
 \end{center} 
 \caption{Feynman diagram for $e^{+}e^{-} \rightarrow e^{+}e^{-}\bar{f}f$ without annihilation of the initial state $e^{+}e^{-}$ particles.}
 \label{fig:prob3-fig}
 \end{figure}
+
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[width=0.3\textwidth]{prob3/prob3_graph.pdf}
+%\end{center} 
+%\end{figure}
 
 (a) For very high energy, and for a very high mass fermion-antifermion pair (these conditions allow you to ignore the mass of the fermions in your calculation), what do you expect for the ratio
 \begin{eqnarray}
@@ -188,13 +242,42 @@ In most cases, the diagram for part (a) dominates, so your answer in part (a) is
 
 If we have the electron and positron annihilate then we may have a diagram of the same order as \fref{prob3-fig} like the one shown in \fref{prob3-same-order}.
 
+\def\dist{2.5cm}
 \begin{figure}[H]
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{prob3/prob3.pdf}    
-\end{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[above left=\dist and \dist of O] (epl) {$e^{+}$};
+    \vertex[below left=\dist and \dist of O] (enl) {$e^{-}$};
+    \vertex[right=\dist of O] (O2);
+    \vertex[above right={\dist/2} and {\dist/2} of O2] (epv);
+    \vertex[above right=\dist and \dist of O2] (epr) {$e^{+}$};
+    \vertex[below right=\dist and \dist of O2] (enr) {$e^{-}$};
+    \vertex[below right={\dist/4} and {\dist/4} of epv] (ffbv);
+    \vertex[above right={\dist/4} and {\dist/4} of ffbv] (fb) {$\overline{f}$};
+    \vertex[below right={\dist/4} and {\dist/4} of ffbv] (f) {$f$};
+
+    \diagram*{
+        (enl) -- [fermion] (O) -- [fermion] (epl),
+        (O) -- [photon] (O2),
+        (O2) -- [anti fermion] (epv) -- [anti fermion] (epr),
+        (O2) -- [fermion] (enr), 
+        (epv) -- [photon] (ffbv),
+        (fb) -- [fermion] (ffbv) -- [fermion] (f),
+    };
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
 \caption{Diagram for $e^{+}e^{-} \rightarrow e^{+}e^{-}f\overline{f}$ process of the same order as \fref{prob3-fig}. Note that the labels of $f$ and $e$ may be interchanged in the final state and the virtual photon line could have been drawn coming off of the lower leg of the final state fermion as well.}
 \label{fig:prob3-same-order}
 \end{figure}
+
+%\begin{figure}[H]
+%\begin{center}
+%    \includegraphics[width=0.6\textwidth]{prob3/prob3.pdf}    
+%\end{center}
+%\end{figure}
 
 
 \prob{4}{
@@ -232,11 +315,11 @@ This is an allowed electromagnetic process.
 \end{tikzpicture}
 \end{center}
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{prob4/a.eps} 
-\end{center} 
-\end{figure}
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[width=0.5\textwidth]{prob4/a.eps} 
+%\end{center} 
+%\end{figure}
 
 (b) $e^{+}e^{-} \rightarrow \pi^{+}\pi^{-}$
 
@@ -245,27 +328,145 @@ The photon coming off the $u$ quark could also be a gluon line.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.5\textwidth]{prob4/b.eps} 
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[above left=\dist and \dist of O] (ep) {$e^{+}$};
+    \vertex[below left=\dist and \dist of O] (en) {$e^{-}$};
+    \vertex[right=\dist of O] (O2);
+    \vertex[above right={\dist/2} and {\dist/2} of O2] (uv);
+    \vertex[above right=\dist and \dist of O2] (u) {$u$};
+    \vertex[below right=\dist and \dist of O2] (ub) {$\overline{u}$};
+    \vertex[below right={\dist/2} and {\dist/4} of uv] (ddbv);
+    \vertex[above right={\dist/1.5} and {\dist/4} of ddbv] (db) {$\overline{d}$};
+    \vertex[below right={\dist/1.5} and {\dist/4} of ddbv] (d) {$d$};
+
+    \diagram*{
+        (en) -- [fermion] (O) -- [fermion] (ep),
+        (O) -- [photon] (O2),
+        (O2) -- [fermion] (uv) -- [fermion] (u),
+        (O2) -- [fermion] (ub), 
+        (uv) -- [photon] (ddbv),
+        (db) -- [fermion] (ddbv) -- [fermion] (d),
+    };
+
+    \draw[decoration={brace},decorate] (d.north east) -- (ub.south east) node[pos=0.5,right] {$\pi^{-}$};
+    \draw[decoration={brace},decorate] (u.north east) -- (db.south east) node[pos=0.5,right] {$\pi^{+}$};
+    
+\end{feynman} 
+\end{tikzpicture} 
 \end{center} 
 \end{figure}
+
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[width=0.5\textwidth]{prob4/b.eps} 
+%\end{center} 
+%\end{figure}
 
 (c) $e^{-}p \rightarrow e^{-}n\pi^{+}$ 
 
 This is an allowed strong process.
 
+\def\distc{0.5cm}
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[above=of O] (ev);
+    \vertex[left=of ev] (el) {$e^{-}$};
+    \vertex[right=of ev] (er) {$e^{-}$};
+    \vertex[left=of O] (up1) {$u$};
+    \vertex[below=\distc of up1] (up2) {$u$};
+    \vertex[below=\distc of up2] (dp) {$d$};
+    \vertex[right=of O] (un) {$u$};
+    \vertex[below=\distc of un] (dn1) {$d$};
+    \vertex[below=\distc of dn1] (dn2) {$d$};
+    \vertex[below=of dn2] (upi) {$u$};
+    \vertex[below=\distc of upi] (dbpi) {$\overline{d}$};
+    \vertex[right=\distc of up1] (gv1);
+    \vertex[below right=1cm and 2cm of gv1] (gv2);
+
+    \diagram*{
+        (el) -- [fermion] (ev) -- [fermion] (er),
+        (ev) -- [photon] (O),
+        (up1) -- [fermion] (O) -- [fermion] (un),
+        (dp) -- [fermion] (dn1),
+        (up2) -- [fermion] (upi),
+        (gv1) -- [gluon] (gv2),
+        (dn2) -- [anti fermion] (gv2) -- [anti fermion] (dbpi),
+    };
+
+    \draw[decoration={brace},decorate] (dp.south west) -- (up1.north west) node [pos=0.5,left] {$p$};
+    \draw[decoration={brace},decorate] (un.north east) -- (dn2.south east) node [pos=0.5,right] {$n$};
+    \draw[decoration={brace},decorate] (upi.north east) -- (dbpi.south east) node [pos=0.5,right] {$\pi^{+}$};
+
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
+\end{figure}
+
 (d) $e^{-}p \rightarrow \nu_{e}n\pi^{0}$
+
+This is an allowed weak process.
 
 (e) $\nu_{\mu}e^{-} \rightarrow \nu_{e}\mu^{-}$
 
+This is an allowed weak process.
+
 (f) $\overline{\nu}_{\mu}e^{-} \rightarrow \overline{\nu}_{e}\mu^{-}$
+
+This is forbidden by conservation of lepton number.
 
 (g) $\overline{\nu}_{e}e^{-} \rightarrow \pi^{-}\pi^{0}$
 
+This is an allowed weak process.
+
 (h) $\overline{\nu}_{e}e^{-} \rightarrow \nu_{e}e^{+}$ 
+
+This is an allowed weak process.
 
 (i) $\pi^{+}n \rightarrow p\gamma$
 
+This is an allowed electromagnetic process.
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[left=of O] (upi) at (0,0) {$u$};
+    \vertex[below=\distc of upi] (dbpi) {$\overline{d}$};
+    \vertex[below=of dbpi] (dn1) {$d$};
+    \vertex[below=\distc of dn1] (un) {$u$};
+    \vertex[below=\distc of un] (dn2) {$d$};
+    \vertex[right={2*\distc} of dbpi] (gamv);
+    \vertex[right={2*\distc} of gamv] (gam) {$\gamma$};
+    \vertex[below=of gam] (up1) {$u$};
+    \vertex[below=\distc of up1] (up2) {$u$};
+    \vertex[below=\distc of up2] (dp) {$d$};
+
+    \diagram*{
+        (upi) -- [fermion] (up1), 
+        (dbpi) -- [fermion] (gamv) -- [photon] (gam),
+        (dn1) -- [fermion] (gamv),
+        (un) -- [fermion] (up2),
+        (dn2) -- [fermion] (dp),
+    };
+
+    \draw[decoration={brace},decorate] (dbpi.south west) -- (upi.north west) node [pos=0.5,left] {$\pi^{+}$};
+    \draw[decoration={brace},decorate] (dn2.south west) -- (dn1.north west) node [pos=0.5,left] {$n$};
+    \draw[decoration={brace},decorate] (up1.north east) -- (dp.south east) node [pos=0.5,right] {$p$};
+
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
+\end{figure}
+
 (j) $e^{+}e^{-} \rightarrow \nu_{\mu}\overline{\nu}_{\mu}$
+
+This is an allowed weak process.
 
 (k) $p\overline{p} \rightarrow \Sigma^{+}\Sigma^{-}$
 
@@ -294,15 +495,41 @@ The second charmed particle to be discovered, the $D^{+}$, was found first in th
 
 (a) Draw a diagram for this decay.
 
-%\begin{figure}
-%\begin{center}
-%\begin{tikzpicture}
-%\begin{feynman}
-%    
-%\end{feynman}    
-%\end{tikzpicture}    
-%\end{center} 
-%\end{figure}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (O) at (0,0);
+    \vertex[left=of O] (cD) {$c$};
+    \vertex[below=\distc of cD] (dbD) {$\overline{d}$};
+    \vertex[above right=of O] (sK) {$s$};
+    \vertex[below right=0.5cm and 0.5cm of O] (Wv);
+    \vertex[below=\distc of sK] (ubK) {$\overline{u}$};
+    \vertex[below={2*\distc} of ubK] (upi1) {$u$};
+    \vertex[below=\distc of upi1] (dbpi1) {$\overline{d}$};
+    \vertex[below={2*\distc} of dbpi1] (upi2) {$u$};
+    \vertex[below=\distc of upi2] (dbpi2) {$\overline{d}$};
+    \vertex[right=0.75cm of dbD] (gv1);
+    \vertex[right=1.25cm of gv1] (gv2);
+
+    \diagram*{
+        (cD) -- [fermion] (O) -- [fermion] (sK),
+        (dbpi1) -- [fermion] (Wv) -- [fermion] (upi1),
+        (gv1) -- [gluon] (gv2),
+        (ubK) -- [fermion] (gv2) -- [fermion] (upi2),
+        (dbD) -- [fermion] (gv1) -- [fermion] (dbpi2),
+        (O) -- [boson,edge label=$W^{+}$] (Wv),
+    };
+
+    \draw[decoration={brace},decorate] (dbD.south west) -- (cD.north west) node [pos=0.5,left] {$D^{+}$};
+    \draw[decoration={brace},decorate] (upi1.north east) -- (dbpi1.south east) node [pos=0.5,right] {$\pi^{+}$};
+    \draw[decoration={brace},decorate] (upi2.north east) -- (dbpi2.south east) node [pos=0.5,right] {$\pi^{+}$};
+    \draw[decoration={brace},decorate] (sK.north east) -- (ubK.south east) node [pos=0.5,right] {$K^{-}$};
+
+\end{feynman}    
+\end{tikzpicture}    
+\end{center} 
+\end{figure}
 
 (b) Ignoring its narrow width, the experimenters who discovered this mode knew immediately that it could not come from the strong decay of a meson.
 Why?
