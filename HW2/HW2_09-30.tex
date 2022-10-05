@@ -1,7 +1,8 @@
-\def\duedate{09/30/22}
+\def\duedate{10/04/22}
 \def\HWnum{2}
 \input{../preamble.tex}
 \usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{subcaption}
 
 \begin{document}
     
@@ -41,7 +42,6 @@ The electric potential energy between charges $q_1$ and $q_2$ is given as $U(r) 
 \end{aligned}
 }
 ,\end{eqnarray}
-Note that this is a classical analysis, defining the binding energy to be just the negative of the work done to assemble the charge distribution.
 
 
 b) Just to get rid of gravity once and for all, calculate the gravitational binding energy for the three quarks in this model.
@@ -86,7 +86,7 @@ If we subtract the expression for the mass of the $d$ quark from that for the $u
     \label{eq:mass-diff_binding}
     \eqbox{
         \begin{aligned}
-            m_{d} - m_{s} = -\frac{2m_{\Sigma^{+}} - m_{\Sigma^{-}} - m_{\Sigma^{0}}}{3} &= \SI{3.78}{\MeV} \\
+            m_{d} - m_{u} = -\frac{2m_{\Sigma^{+}} - m_{\Sigma^{-}} - m_{\Sigma^{0}}}{3} &= \SI{3.78}{\MeV} \\
             V &= \SI{0.51}{\MeV}
         \end{aligned}
 }
@@ -100,8 +100,8 @@ Does this suggest to you that the $K$ mesons are larger or smaller in size than 
 For the $K$ mesons we have
 \begin{align}
     \label{eq:K-mass}
-    m_{K^{0}} &= m_{d} + m_{s} - V_{K} \\
-    m_{K^{\pm}} &= m_{u} + m_{s} + 2V_{K}
+    m_{K^{0}} &= m_{d} + m_{s} + V_{K} \\
+    m_{K^{\pm}} &= m_{u} + m_{s} - 2V_{K}
 ,\end{align}
 where $V=e^2/36\pi\epsilon_0\langle r \rangle_{K}$, so the Kaon mass difference is given as
 \begin{eqnarray}
@@ -120,6 +120,8 @@ and as in the case with kaons
     \label{eq:B-mass-diff}
     m_{B^{0}} - m_{B^{\pm}} = (m_{d} - m_{u}) - 3V_{B}
 .\end{eqnarray}
+
+Thus, the binding factors $V_{K} = \SI{0.22}{\MeV}$ and $V_{B} = \SI{3.45}{\MeV}$, which would lead to a prediction for the $K$ system to be larger.
 
 
 \prob{2}{
@@ -292,120 +294,13 @@ If the reaction or decay is allowed, draw a diagram showing the leading mechanis
 
 This is an allowed electromagnetic process.
 
-\begin{center}    
-\begin{tikzpicture}
-\begin{feynman}
-   \vertex (O) at (0,0);
-   \vertex[right=of O] (pr);
-   \vertex[left=of O] (pl);
-   \vertex[above left=of pl] (ep) {$e^{+}$};
-   \vertex[below left=of pl] (en) {$e^{-}$};
-   \vertex[above right=of pr] (tp) {$\tau^{+}$};
-   \vertex[below right=of pr] (tn) {$\tau^{-}$};
-
-   \diagram* {
-    (pl) -- [photon] (pr),
-    (ep) -- [anti fermion] (pl),
-    (en) -- [fermion] (pl),
-    (pr) -- [anti fermion] (tp),
-    (pr) -- [fermion] (tn),
-   };
-
-\end{feynman}
-\end{tikzpicture}
-\end{center}
-
-%\begin{figure}[H]
-%\begin{center}
-%\includegraphics[width=0.5\textwidth]{prob4/a.eps} 
-%\end{center} 
-%\end{figure}
-
 (b) $e^{+}e^{-} \rightarrow \pi^{+}\pi^{-}$
 
 This is an allowed process.
-The photon coming off the $u$ quark could also be a gluon line.
-
-\begin{figure}[H]
-\begin{center}
-\begin{tikzpicture}
-\begin{feynman}
-    \vertex (O) at (0,0);
-    \vertex[above left=\dist and \dist of O] (ep) {$e^{+}$};
-    \vertex[below left=\dist and \dist of O] (en) {$e^{-}$};
-    \vertex[right=\dist of O] (O2);
-    \vertex[above right={\dist/2} and {\dist/2} of O2] (uv);
-    \vertex[above right=\dist and \dist of O2] (u) {$u$};
-    \vertex[below right=\dist and \dist of O2] (ub) {$\overline{u}$};
-    \vertex[below right={\dist/2} and {\dist/4} of uv] (ddbv);
-    \vertex[above right={\dist/1.5} and {\dist/4} of ddbv] (db) {$\overline{d}$};
-    \vertex[below right={\dist/1.5} and {\dist/4} of ddbv] (d) {$d$};
-
-    \diagram*{
-        (en) -- [fermion] (O) -- [fermion] (ep),
-        (O) -- [photon] (O2),
-        (O2) -- [fermion] (uv) -- [fermion] (u),
-        (O2) -- [fermion] (ub), 
-        (uv) -- [photon] (ddbv),
-        (db) -- [fermion] (ddbv) -- [fermion] (d),
-    };
-
-    \draw[decoration={brace},decorate] (d.north east) -- (ub.south east) node[pos=0.5,right] {$\pi^{-}$};
-    \draw[decoration={brace},decorate] (u.north east) -- (db.south east) node[pos=0.5,right] {$\pi^{+}$};
-    
-\end{feynman} 
-\end{tikzpicture} 
-\end{center} 
-\end{figure}
-
-%\begin{figure}[H]
-%\begin{center}
-%\includegraphics[width=0.5\textwidth]{prob4/b.eps} 
-%\end{center} 
-%\end{figure}
 
 (c) $e^{-}p \rightarrow e^{-}n\pi^{+}$ 
 
 This is an allowed strong process.
-
-\def\distc{0.5cm}
-\begin{figure}[H]
-\begin{center}
-\begin{tikzpicture}
-\begin{feynman}
-    \vertex (O) at (0,0);
-    \vertex[above=of O] (ev);
-    \vertex[left=of ev] (el) {$e^{-}$};
-    \vertex[right=of ev] (er) {$e^{-}$};
-    \vertex[left=of O] (up1) {$u$};
-    \vertex[below=\distc of up1] (up2) {$u$};
-    \vertex[below=\distc of up2] (dp) {$d$};
-    \vertex[right=of O] (un) {$u$};
-    \vertex[below=\distc of un] (dn1) {$d$};
-    \vertex[below=\distc of dn1] (dn2) {$d$};
-    \vertex[below=of dn2] (upi) {$u$};
-    \vertex[below=\distc of upi] (dbpi) {$\overline{d}$};
-    \vertex[right=\distc of up1] (gv1);
-    \vertex[below right=1cm and 2cm of gv1] (gv2);
-
-    \diagram*{
-        (el) -- [fermion] (ev) -- [fermion] (er),
-        (ev) -- [photon] (O),
-        (up1) -- [fermion] (O) -- [fermion] (un),
-        (dp) -- [fermion] (dn1),
-        (up2) -- [fermion] (upi),
-        (gv1) -- [gluon] (gv2),
-        (dn2) -- [anti fermion] (gv2) -- [anti fermion] (dbpi),
-    };
-
-    \draw[decoration={brace},decorate] (dp.south west) -- (up1.north west) node [pos=0.5,left] {$p$};
-    \draw[decoration={brace},decorate] (un.north east) -- (dn2.south east) node [pos=0.5,right] {$n$};
-    \draw[decoration={brace},decorate] (upi.north east) -- (dbpi.south east) node [pos=0.5,right] {$\pi^{+}$};
-
-\end{feynman} 
-\end{tikzpicture} 
-\end{center} 
-\end{figure}
 
 (d) $e^{-}p \rightarrow \nu_{e}n\pi^{0}$
 
@@ -431,62 +326,59 @@ This is an allowed weak process.
 
 This is an allowed electromagnetic process.
 
-\begin{figure}[H]
-\begin{center}
-\begin{tikzpicture}
-\begin{feynman}
-    \vertex (O) at (0,0);
-    \vertex[left=of O] (upi) at (0,0) {$u$};
-    \vertex[below=\distc of upi] (dbpi) {$\overline{d}$};
-    \vertex[below=of dbpi] (dn1) {$d$};
-    \vertex[below=\distc of dn1] (un) {$u$};
-    \vertex[below=\distc of un] (dn2) {$d$};
-    \vertex[right={2*\distc} of dbpi] (gamv);
-    \vertex[right={2*\distc} of gamv] (gam) {$\gamma$};
-    \vertex[below=of gam] (up1) {$u$};
-    \vertex[below=\distc of up1] (up2) {$u$};
-    \vertex[below=\distc of up2] (dp) {$d$};
-
-    \diagram*{
-        (upi) -- [fermion] (up1), 
-        (dbpi) -- [fermion] (gamv) -- [photon] (gam),
-        (dn1) -- [fermion] (gamv),
-        (un) -- [fermion] (up2),
-        (dn2) -- [fermion] (dp),
-    };
-
-    \draw[decoration={brace},decorate] (dbpi.south west) -- (upi.north west) node [pos=0.5,left] {$\pi^{+}$};
-    \draw[decoration={brace},decorate] (dn2.south west) -- (dn1.north west) node [pos=0.5,left] {$n$};
-    \draw[decoration={brace},decorate] (up1.north east) -- (dp.south east) node [pos=0.5,right] {$p$};
-
-\end{feynman} 
-\end{tikzpicture} 
-\end{center} 
-\end{figure}
-
 (j) $e^{+}e^{-} \rightarrow \nu_{\mu}\overline{\nu}_{\mu}$
 
 This is an allowed weak process.
 
 (k) $p\overline{p} \rightarrow \Sigma^{+}\Sigma^{-}$
 
+This is an allowed weak process.
+
 (l) $\pi^{+}n \rightarrow \Lambda K^{+}$
+
+This is an allowed stong process.
 
 (m) $\tau^{-} \rightarrow K^{-}\nu_{\tau}$
 
+This is an allowed weak process.
+
 (n) $\Sigma^{0} \rightarrow \Lambda \pi^{0}$
+
+This is forbidden by kinematic considerations.
 
 (o) $\psi \rightarrow \rho^{+}\pi^{-}$
 
+This is an allowed strong process.
+
 (p) $\pi^{+} \rightarrow e^{+}\nu_{e}$
+
+This is an allowed weak process.
 
 (q) $\Omega^{-} \rightarrow \Xi^{0}K^{-}$
 
+This is forbidden by kinematic considerations.
+
 (r) $\Omega^{-} \rightarrow \Lambda K^{-}$
+
+This is an allowed strong process.
 
 (s) $n \rightarrow e^{-}\overline{\nu}_{e}\pi^{+}$
 
+This is forbidden by conservation of baryon number.
+
 (t) $B^{-} \rightarrow \psi K^{-}$
+
+This is an allowed weak process.
+
+Possible contributing diagrams for each allowed process are shown below:
+
+\begin{center}
+\includegraphics[width=0.7\paperwidth]{prob4_1.png} 
+\newpage
+\includegraphics[width=0.7\paperwidth]{prob4_2.png}
+\newpage
+\end{center}   
+
 
 
 \prob{5}{
@@ -495,7 +387,8 @@ The second charmed particle to be discovered, the $D^{+}$, was found first in th
 
 (a) Draw a diagram for this decay.
 
-\begin{figure}
+\def\distc{0.5cm}
+\begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}
 \begin{feynman}
@@ -539,8 +432,7 @@ Writing the decay in terms of quark content we have
     \label{eq:decay-quark}
     c \overline{d} \rightarrow s \overline{u} + u \overline{d} + u \overline{d}
 .\end{eqnarray}
-Obviously, flavor is not conserved in this decay, but the strong force conserves quark flavor in any process.
-So this decay cannot proceed strongly.
+Obviously, flavor is not conserved in this decay, and since the strong force conserves quark flavor, this decay cannot proceed strongly.
 
 \prob{6}{
 The decays $D^{0} \rightarrow K^{-}\pi^{+}$ and $D^{0} \rightarrow K^{+}\pi^{-}$ are both allowed.
@@ -548,6 +440,74 @@ However, the former has a much higher branching ratio than the latter.
 Draw the diagrams for these two decays and estimate the ratio of branching fractions due to the Cabibo mixing angle factors.
 Compare your answer to the data summary in the PDG tables.
 }
+
+The first order diagrams are as follows:
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (Dc) at (0,0) {$c$};
+    \vertex[below=0.5cm of Dc] (Dub) {$\overline{u}$};
+    \vertex[right=2.5cm of Dc] (piu) {$u$};
+    \vertex[above=0.5cm of piu] (pidb) {$\overline{d}$};
+    \vertex[below=1.0cm of piu] (Ks) {$s$};
+    \vertex[below=0.5cm of Ks] (Kub) {$\overline{u}$};
+    \vertex[right=0.75cm of Dc] (Wv1);
+    \vertex[above right=0.5cm and 0.5cm of Wv1] (Wv2);
+
+    \diagram*{
+        (Dc) -- [fermion] (Wv1) -- [boson,edge label={$W^{+}$}] (Wv2) -- [anti fermion] (pidb),
+        (Wv2) -- [fermion] (piu),
+        (Wv1) -- [fermion] (Ks),
+        (Dub) -- [anti fermion] (Kub),
+    };
+
+    \draw[decoration={brace},decorate] (Dub.south west) -- (Dc.north west) node[pos=0.5,left] {$D^{0}$};
+    \draw[decoration={brace},decorate] (pidb.north east) -- (piu.south east) node[pos=0.5,right] {$\pi^{+}$};
+    \draw[decoration={brace},decorate] (Ks.north east) -- (Kub.south east) node[pos=0.5,right] {$K^{-}$};
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+    \vertex (Dub) at (0,0) {$\overline{u}$};
+    \vertex[below=0.5cm of Dub] (Dc) {$c$};
+    \vertex[right=2.5cm of Dub] (piub) {$\overline{u}$};
+    \vertex[above=0.5cm of piu] (pid) {$d$};
+    \vertex[below=1.0cm of piu] (Ksb) {$\overline{s}$};
+    \vertex[below=0.5cm of Ks] (Ku) {$u$};
+    \vertex[right=0.75cm of Dc] (Wv1);
+    \vertex[below right=0.5cm and 0.5cm of Wv1] (Wv2);
+
+    \diagram*{
+        (Dc) -- [fermion] (Wv1) -- [boson,edge label'={$W^{+}$}] (Wv2) -- [anti fermion] (Ksb),
+        (Wv2) -- [fermion] (Ku),
+        (Wv1) -- [fermion] (pid),
+        (Dub) -- [anti fermion] (piub),
+    };
+
+    \draw[decoration={brace},decorate] (Dc.south west) -- (Dub.north west) node[pos=0.5,left] {$D^{0}$};
+    \draw[decoration={brace},decorate] (pidb.north east) -- (piu.south east) node[pos=0.5,right] {$\pi^{-}$};
+    \draw[decoration={brace},decorate] (Ks.north east) -- (Kub.south east) node[pos=0.5,right] {$K^{+}$};
+\end{feynman} 
+\end{tikzpicture} 
+\end{center} 
+\end{figure}
+
+
+The primary difference between the graphs is the vertex where $c$ changes flavor through a weak process.
+For the generic process we have $c \rightarrow s' = s\cos{\theta_{C}} - d\sin{\theta_{C}}$, where $\sin^2{\theta_{C}} \approx 0.05$.
+Thus, the branching ratio is
+\begin{eqnarray}
+    \label{eq:branching-ratio}
+    B = \frac{\Gamma(D^{0} \rightarrow K^{-}\pi^{+})}{\Gamma(D^{0} \rightarrow K^{+}\pi^{-})} = \frac{\mathcal{P}(c \rightarrow s)}{\mathcal{P}(c \rightarrow d)} = \frac{\cos^2{\theta_{c}}}{\sin^2{\theta_{c}}} \approx 19
+.\end{eqnarray}
+
 
 
 
