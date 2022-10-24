@@ -1,0 +1,136 @@
+\def\duedate{10/24/22}
+\def\HWnum{3}
+\input{../preamble.tex}
+
+\begin{document}
+    
+\prob{1}{}
+
+a) What are the possible $J^{PC}$ (total angular momentum, parity, and charge quantum numbers) values for mesons made up of a quark and an antiquark of the same flavor?
+Enumerate all the possibilities through $J = 4$.
+
+The total angular momentum $J = L + S$, where $L$ is the orbital angular momentum and $S$ is the spin angular momentum. 
+Since the meson system ($q\overline{q}$) is composed of 2 fermions, it must be a boson, meaning it can only be spin-0 or spin-1.
+The total angular momentum for a given $s,\ell$ values for spin and orbital angular momentum $j \in \{ |s - \ell|, \ldots, s + \ell - 1, s + \ell \} $.
+The parity quantum number is multiplicative, with $P(\overline{q}) = - P(q)$ and $|P(q)| = 1$.
+Thus, $P(q\overline{q}) = -[P(q)]^2(-1)^{\ell} = (-1)^{\ell + 1}$.
+Additionally, the charge quantum number takes on the value $(-1)^{\ell + s}$ for a system consiting of a particle-antiparticle pair.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ccccc}
+    S & L & J & P & C\\
+    \hline
+    0 & 0 & 0 & - & + \\
+    1 & 0 & 1 & - & - \\
+    0 & 1 & 1 & + & - \\
+    1 & 1 & $\{ 0,1,2 \} $ & + & + \\
+    0 & 2 & 2 & - & + \\
+    1 & 2 & $\{ 1,2,3 \} $ & - & - \\
+    0 & 3 & 3 & + & - \\
+    1 & 3 & $\{ 2,3,4 \} $ & + & + \\
+    0 & 4 & 4 & - & +
+\end{tabular}
+\end{center}
+\caption{Table of possible $J$ and $P$ values for unflavored mesons given combinations of $S$ and $L$ values.}
+\label{tab:JPC-values}
+\end{table}
+
+These combinations give us the following set of possible $J^{PC}$ values:
+\begin{align}
+    \label{eq:JPC}
+    J^{PC} &\in \{ 0^{-+}, 1^{--}, 1^{+-}, 0^{++}, 1^{++}, 2^{++}, 2^{-+}, 2^{--}, 3^{--}, 3^{+-}, 3^{++}, 4^{++}, 4^{-+} \}
+.\end{align}
+
+b) Which of these values can be found for mesons in the PDG listings? 
+
+The PDG lists the following values of $J^{PC}$ in the light unflavored meson section, which correspond with the list in \eref{JPC}:
+\begin{align}
+    \label{eq:JPC-PDG}
+    \{ 0^{-+}, 0^{++}, 1^{--}, 1^{+-}, 1^{++}, 2^{++}, 1^{--}, 2^{-+}, 3^{--}, 4^{++} \} 
+.\end{align}
+
+
+c) What $J^{PC}$ values are not possible for a quark-antiquark pair?
+Can any of them be found in the PDG listings?
+
+The following $J^{PC}$ values are listed in the PDG, which are not listed in \eref{JPC}:
+\begin{eqnarray}
+    \label{eq:JPC-forbidden}
+    \{ 1^{-+} \}  
+.\end{eqnarray}
+Clearly, this indicates that our model for mesons simply as $q\overline{q}$ pairs is insufficient and incorrect.
+
+d) What $J^{PC}$ values are possible for a meson that decays strongly into $\pi^{+}\pi^{-}$?
+
+The $\pi^{\pm}$ have $J = 0$ and $P = -1$ separately.
+As a system $P = (-1)^{\ell}$, and $J = \ell$.
+In any strong decay, parity and spin is conserved so it follows that the possible values of $J^{PC} = 0^{+\pm}$.
+
+e) What $J^{PC}$ values are possible for a meson that decays strongly into $\pi^{0}\pi^{0}$?
+What are the possible isospin values?
+
+We know $J^{PC} = 0^{-+}$ for the $\pi^{0}$.
+As a system $P = -1$ and $C = -1$, so we need $J = 0$ and $J^{PC} = 0^{--}$.
+
+From isospin considerations $\pi^{0} = \ket{1,0}$, and using the Clebsch-Gordan coefficients, we can write
+\begin{eqnarray}
+    \label{eq:isospin-CG}
+    \ket{1,0}\ket{1,0} = \sqrt{\frac{2}{3}}\ket{2,0} - \sqrt{\frac{1}{3}}\ket{0,0}
+,\end{eqnarray}
+so the initial meson could have isospin $0$ or $2$.
+
+f) If you discovered a spin-0 meson that decays strongly into $\rho^{0}\pi^{0}$, why would you want to rush this result off for immediate publication?
+
+We strongly believe that spin is a conserved quantity in a decay or scattering reaction.
+The initial state has spin-0 (as given), but the final state has spin-1 ($s_{\rho} = 1$ and $s_{\pi} = 1$).
+This would be a monumental finding if true since it would be the first observed instance of spin conservation being violated. 
+
+\prob{2}{
+Show that the $\eta(548)$ meson cannot decay into 2 pions by either the strong or electromagnetic interactions and that it cannot decay into 3 pions by the strong interactions.
+}
+
+The $\eta$ meson has $J^{PC} = 0^{-+}$ and is (iso)spin-0, where the pions have $J = 0$ and $P = -1$ ($C = +1$ for the $\pi^{0}$).
+For a two pion system, we have $P = 1$, so it is clear that an $\eta$ decay into two pions is impossible electromagnetically and strongly, which both conserve parity.
+Notice that for a three pion system, $G = -1$ but $G = +1$ for the $\eta$ meson, and since G-parity is conserved in a strong interaction, the $\eta$ cannot decay via the strong interaction into $3$ pions.
+
+
+
+\prob{3}{
+Write an equation relating the cross sections for these four reactions:
+\begin{eqnarray}
+    \label{eq:reactions}
+    \begin{cases}
+    \overline{K}^{0}p \rightarrow \Sigma^{0}\pi^{+} \\
+    \overline{K}^{0}n \rightarrow \Sigma^{+}\pi^{-} \\
+    \overline{K}^{0}n \rightarrow \Sigma^{0}\pi^{0} \\
+    \overline{K}^{0}n \rightarrow \Sigma^{-}\pi^{+}
+    \end{cases}
+.\end{eqnarray}
+
+}
+
+\prob{4}{
+    As an example of the use of isospin in weak decays, consider the decays $\tau^{+} \rightarrow \pi^{+}\pi^{+}\pi^{-}\overline{\nu}_{\tau}$ and $\tau^{+} \rightarrow \pi^{+}\pi^{0}\pi^{0}\overline{\nu}_{\tau}$.
+}
+
+a) Draw the diagram for these decays at the quark level (before hadronization) and observe that there is only one possible isospin state.
+
+b) There is strong evidence that the three pions in these decays come from a $\rho \pi$ intermediate state.
+Assuming that, predict the ratio of branching fractions for these two decays.
+Compare to data (PDG).
+
+
+
+\prob{5}{
+The neutral vector mesons all have measurable decays into $e^{+}e^{-}$.
+%The diagram for this decay is shown on the right.
+Since the quark and antiquark are in a bound state, the calculation of these decay rates depends on the vector meson wave functions and masses.
+However, it is reasonable to assume that these are all about the same for the three light neutral vector mesons, the $\rho^{0}$, the $\omega$, and the $\phi$.
+Make this assumption and predict the relative partial widths.
+}
+
+
+
+
+\end{document}
