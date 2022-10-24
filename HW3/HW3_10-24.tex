@@ -101,14 +101,39 @@ Write an equation relating the cross sections for these four reactions:
 \begin{eqnarray}
     \label{eq:reactions}
     \begin{cases}
-    \overline{K}^{0}p \rightarrow \Sigma^{0}\pi^{+} \\
-    \overline{K}^{0}n \rightarrow \Sigma^{+}\pi^{-} \\
-    \overline{K}^{0}n \rightarrow \Sigma^{0}\pi^{0} \\
-    \overline{K}^{0}n \rightarrow \Sigma^{-}\pi^{+}
+        (a)~\overline{K}^{0}p \rightarrow \Sigma^{0}\pi^{+} \\
+        (b)~\overline{K}^{0}n \rightarrow \Sigma^{+}\pi^{-} \\
+        (c)~\overline{K}^{0}n \rightarrow \Sigma^{0}\pi^{0} \\
+        (d)~\overline{K}^{0}n \rightarrow \Sigma^{-}\pi^{+}
     \end{cases}
 .\end{eqnarray}
-
 }
+
+The proton and neutron isospin wavefunctions are $\ket{1/2,1/2}$ and $\ket{1/2,-1/2}$, respectively, and the $\overline{K}^{0} = s\overline{d}$ has isospin wavefunction $\ket{1/2,1/2}$.
+Let the amplitudes for the reactions above be labeled $\mathcal{M}_{a,b,c,d}$, corresponding to their label above and the amplitudes resulting in isospin final states $I = 1,0,-1$ be $\mathcal{M}_{1,0,-1}$, respectively.
+
+Additionally, the $\Sigma^{+}$, $\Sigma^{0}$, and $\Sigma^{-}$ have isospin wavefunctions $\ket{1,1}$, $\ket{1,0}$, $\ket{1,-1}$.
+Thus, for the $\overline{K}^{0}p$ collision
+\begin{align}
+    \label{eq:rxn1}
+    \ket{1/2,1/2}\ket{1/2,1/2} &= \ket{1,1}
+%    \ket{1,0}\ket{1,1} &= \frac{1}{\sqrt{2}}\big[ \ket{2,1} - \ket{1,1} \big]
+,\end{align}
+while for the $\overline{K}^{0}n$ collisions
+\begin{align}
+    \label{eq:rxn2-4}
+    \ket{1/2,1/2}\ket{1/2,-1/2} &= \frac{1}{\sqrt{2}}\big[ \ket{1,0} + \ket{0,0} \big]
+%    \ket{1,1}\ket{1,-1} &= \Big[ \frac{1}{\sqrt{6}}\ket{2,0} + \frac{1}{\sqrt{2}}\ket{1,0} + \frac{1}{\sqrt{3}}\ket{0,0} \Big] \\
+%    \ket{1,0}\ket{1,0} &= \Big[ \sqrt{\frac{2}{3}}\ket{2,0} - \frac{1}{\sqrt{3}}\ket{0,0} \Big] \\
+%    \ket{1,-1}\ket{1,1} &= \Big[ \frac{1}{\sqrt{6}}\ket{2,0} - \frac{1}{\sqrt{2}}\ket{1,0} + \frac{1}{\sqrt{3}}\ket{0,0} \Big]
+.\end{align}
+Hence, 
+\begin{align}
+    \label{eq:amplitude-relations}
+    \mathcal{M}_{a} = \mathcal{M}_{1} \\
+    \mathcal{M}
+.\end{align}
+
 
 \prob{4}{
     As an example of the use of isospin in weak decays, consider the decays $\tau^{+} \rightarrow \pi^{+}\pi^{+}\pi^{-}\overline{\nu}_{\tau}$ and $\tau^{+} \rightarrow \pi^{+}\pi^{0}\pi^{0}\overline{\nu}_{\tau}$.
@@ -119,6 +144,13 @@ a) Draw the diagram for these decays at the quark level (before hadronization) a
 b) There is strong evidence that the three pions in these decays come from a $\rho \pi$ intermediate state.
 Assuming that, predict the ratio of branching fractions for these two decays.
 Compare to data (PDG).
+
+The $\rho^{\pm}$ and $\rho^{0}$ are like excited states of the $\pi^{\pm}$ and $\pi^{0}$, respectively, so their isospin wavefunctions are the same.
+In either case, we have the isospin wavefunction of the state as
+\begin{eqnarray}
+    \label{eq:rho+-pi0}
+    \ket{1,1}\ket{1,0} = \frac{1}{\sqrt{2}} \big[ \ket{2,1} + \ket{1,1} \big]
+.\end{eqnarray}
 
 
 
