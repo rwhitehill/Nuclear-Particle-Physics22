@@ -1,0 +1,261 @@
+\def\duedate{11/29/22}
+\def\HWnum{4}
+\input{../preamble.tex}
+\usepackage[]{slashed}
+
+\begin{document}
+    
+\prob{1}{
+In the toy model introduced in lecture ($A$, $B$, and $C$ only)
+}
+
+a) Calculate the total cross section for $A \bar{A} \rightarrow A \bar{A}$ for the case $m_{A} = 0$, $m_{C} \gg E_{A}$.
+Remember there are two diagrams for this process.
+
+The tree level diagrams are shown in the following image, with momenta labeled:
+
+For diagram 1, we have
+\begin{eqnarray}
+    \label{eq:amp1}
+    \mathcal{M}_{1} = i(-ig)\frac{i}{s - m_{C}^2}(-ig) 
+,\end{eqnarray}
+where $s = (p_1 + p_2)^2$,
+and for diagram 2 we have
+\begin{eqnarray}
+    \label{eq:amp2}
+    \mathcal{M}_{2} = i(-ig)\frac{i}{t - m_{C}^2}(-ig) 
+,\end{eqnarray}
+where $t = (p_1 - p_3)^2$.
+The total amplitude is given as
+\begin{eqnarray}
+    \label{eq:squared-amp}
+    \mathcal{M} = \frac{g^{2}}{s - m_{C}^2} + \frac{g^{2}}{t - m_{C}^2}
+.\end{eqnarray}
+We can simplify the Mandelstam variables ($s$ and $t$) as 
+\begin{eqnarray}
+    \label{eq:mand-vars}
+    \begin{aligned}    
+        s &= p_1^2 + p_2^2 + 2 p_1 \cdot p_2 = \phantom{-} 2 p_1 \cdot p_2 = 4 E_{A}^2 \\
+        t &= p_1^2 + p_3^2 - 2 p_1 \cdot p_3 = -2 p_1 \cdot p_3 = -2 E_{A}^2 (1 + \cos{\theta})
+    .\end{aligned}
+\end{eqnarray}
+Note that $E_{A} = E_{\bar{A}} = | \mathbf{p} |$ since $m_{A} = m_{\bar{A}} = 0$.
+The center of mass differential cross section is then
+\begin{align}
+    \label{eq:dxsec-CM}
+    \dv{\sigma}{\Omega} &= \frac{1}{64 \pi^2 (E_{A} + E_{\bar{A}})^2} \frac{| \mathbf{p}' |}{| \mathbf{p} |} | \mathcal{M} |^2 \\
+                        &= \frac{g^{4}}{64 \pi^2 (4 E_{A}^2)} \Big[ \frac{1}{s - m_{C}^2} + \frac{1}{t - m_{C}^2} \Big]^2 \\
+                        &= \frac{g^{4}}{64 \pi ^2 E_{A}^2 m_{C}^{4}} \Big[ 1 + \Big( \frac{E_{A}}{m_{C}} \Big)^2 \sin^2{(\theta/2)} \Big]
+,\end{align}
+where $E_{A}$ and $E_{\bar{A}}$ are the initial state energies of the corresponding particles and $\mathbf{p}$ and $\mathbf{p}'$ are the initial and final state 3-momenta in the CM frame.
+Note that the term in square brackets was expanded in a series of powers of $E_{A}/m_{C}$ and higher order terms were thrown away.
+Integrating over the solid angle $\Omega$, we find the total cross section to be
+\begin{eqnarray}
+    \label{eq:tot-xsec-AAbar}
+    \eqbox{
+        \sigma = \frac{g^{4}}{16 \pi E_{A}^2 m_{C}^{4}} \Bigg[ 1 + \frac{1}{2} \Big( \frac{E_{A}}{2 m_{C}} \Big)^2 \Bigg]
+}
+.\end{eqnarray}
+
+
+b) Calculate the total cross section for $A A \rightarrow A A$ for the case $m_{A} = 0$, $m_{C} \gg E_{A}$.
+Remember that there are two diagrams for this process and that the integral should be taken only over half the solid angle or the $S$ factor should be used to avoid double counting.
+What is the ratio of the cross sections for parts (a) and (b)?
+
+The two possible diagrams are shown below:
+
+As in part (a) we use our toy Feynman rules to find that
+\begin{align}
+    \label{eq:amps-b}
+    \mathcal{M}_{1} &= \frac{g^2}{(p_1 - p_3)^2 - m_{C}^2} \\
+    \mathcal{M}_{2} &= \frac{g^2}{(p_3 - p_2)^2 - m_{C}^2}
+,\end{align}
+which gives the total amplitude as
+\begin{eqnarray}
+    \label{eq:amp-b}
+    \mathcal{M} = g^2 \Big[ \frac{1}{t - m_{C}^2} + \frac{1}{u - m_{C}^2} \Big]
+\end{eqnarray}
+and differential cross section as
+\begin{eqnarray}
+    \label{eq:dxsec-b}
+    \dv{\sigma}{\Omega} = \frac{g^{4}}{128 \pi^2 E_{A}^2 m_{C}^{4}} \Bigg[ 1 - \Big( \frac{2E_{A}}{m_{C}} \Big)^2 \Bigg]
+.\end{eqnarray}
+We then obtain the total cross section by integrating over the solid angle:
+\begin{eqnarray}
+    \label{eq:xsec-b}
+    \eqbox{
+        \sigma = \frac{g^{4}}{32 \pi E_{A}^2 m_{C}^{4}} \Bigg[ 1 - \Big( \frac{2 E_{A}}{m_{C}} \Big)^2 \Bigg]
+    } 
+.\end{eqnarray}
+
+
+
+c) Calculate the differential cross sections for $A \bar{A} \rightarrow A \bar{A}$ and $A A \rightarrow A A$ for the case $m_{A} = m_{C} = 0$.
+
+Using our results for the amplitudes from parts (a) and (b) and inserting $m_{C} = 0$ we have
+\begin{eqnarray}
+    \label{eq:xsec1}
+    \eqbox{
+    \dv{\sigma(A \bar{A} \rightarrow A \bar{A})}{\Omega} = \frac{g^{4}}{64 \pi^2 (4 E_{A}^2)} \Big( \frac{1}{s} + \frac{1}{t} \Big)^2 = \Big( \frac{g^2 \tan^2{(\theta/2)}}{64 \pi E_{A}^3} \Big)^2
+}
+\end{eqnarray}
+and
+\begin{eqnarray}
+    \label{eq:xsec2}
+    \eqbox{
+    \dv{\sigma(AA \rightarrow AA)}{\Omega} = \frac{g^{4}}{128 \pi^2 (4 E_{A}^2)} \Big( \frac{1}{t} + \frac{1}{u} \Big)^2 = \frac{1}{2} \Big( \frac{g^{2}}{16 \pi E_{A}^3 \sin^2{\theta}} \Big) ^2
+}
+.\end{eqnarray}
+
+
+d) What is the ratio of the two cross sections for part (c) at very small angles?
+What is the ratio for scattering at $90^{\circ}$ in the center of mass?
+At $180^{\circ}$?
+
+The ratio of the two cross sections is as follows:
+\begin{eqnarray}
+    \label{eq:ratio}
+    R = \frac{\dd{\sigma(A \bar{A} \rightarrow A \bar{A})}}{\dd{\sigma(AA \rightarrow AA)}} = \frac{1}{8} \sin^{4}{\theta}\tan^{4}{(\theta/2)}
+.\end{eqnarray}
+At small angles, the ratio is
+\begin{eqnarray}
+    \label{eq:ratio-small-angle}
+    R(\theta) = \frac{\theta^{8}}{128}
+,\end{eqnarray}
+which is incredibly small.
+
+Furthermore,
+\begin{eqnarray}
+    \label{eq:ratio-90}
+    R(90^{\circ}) = \frac{1}{8} 
+,\end{eqnarray}
+and
+\begin{eqnarray}
+    \label{eq:ratio-180}
+    R(180^{\circ}) = \infty
+.\end{eqnarray}
+
+
+
+\prob{2}{
+The Higgs boson has been discovered, cannot decay into two real $W$ or $Z$ pairs because its mass is too low.
+However, consider another HIggs boson with a sufficiently high mass and spin 0.
+Its coupling will be proportional to the Higgs mass divided by the $W$ mass, i.e. the vertex factor will be proportional to $-i g M_{H}/M_{W}$, where $g$ is a dimensionless number.
+From dimensional analysis, how do you expect the Higgs decay width to vary with the unknown Higgs mass in this very high mass region?
+}
+
+\prob{3}{
+Show that $S^{\dagger}S \ne 1$ but $S^{\dagger}\gamma^{0}S = \gamma^{0}$.
+}
+
+Recall that 
+\begin{eqnarray}
+    \label{eq:S-mat}
+    S = \begin{pmatrix}
+        a_{+} & a_{-}\sigma_1 \\
+        a_{-}\sigma_1 & a_{+}
+    \end{pmatrix}   
+,\end{eqnarray}
+where $a_{\pm} = \pm \sqrt{\frac{1}{2}(\gamma \pm 1)}$ and $\gamma = 1/\sqrt{1 - v^2}$ is the Lorentz boost factor (in natural units).
+Thus,
+\begin{eqnarray}
+    \label{eq:SdaggerS}
+    \begin{aligned}    
+        S^{\dagger} S &= \begin{pmatrix}
+        a_{+} & a_{-} \sigma_1 \\
+        a_{-} \sigma_1 & a_{+}
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_{+} & a_{-} \sigma_1 \\
+        a_{-} \sigma_1 & a_{+}
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+        a_{+}^2 + a_{-}^2 \sigma_1^2 & 2 a_{+}a_{-} \sigma_1 \\
+        2 a_{+}a_{-} \sigma_1 & a_{-}^2 \sigma_1^2 + a_{+}^2
+    \end{pmatrix} 
+    \\
+                      &=
+    \begin{pmatrix}
+        \gamma & -\sqrt{\gamma^2 - 1} \sigma_1 \\
+        -\sqrt{\gamma^2 - 1}\sigma_1 & \gamma
+    \end{pmatrix}
+    =
+    \gamma
+    \begin{pmatrix}
+        1 & -v \sigma_1 \\
+        -v \sigma_1 & 1
+    \end{pmatrix} 
+    \ne 1
+    \end{aligned}
+.\end{eqnarray}
+
+Checking the second identity, we have
+\begin{eqnarray}
+    \label{eq:Sdagger-gamma0-S}
+    S^{\dagger} \gamma^{0} S = 
+    \begin{pmatrix}
+        a_{+} & a_{-} \sigma_1 \\
+        a_{-} \sigma_1 & a_{+}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_{+} & a_{-} \sigma_1 \\
+        a_{-} \sigma_1 & a_{+}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    a_{+}^2 - a_{-}^2\sigma_1^2 & 0 \\
+    0 & -a_{+}^2 + a_{-}^2\sigma_1^2
+    \end{pmatrix} 
+    = \gamma^{0}
+.\end{eqnarray}
+
+
+
+\prob{4}{
+Using the plane-wave solutions of the Dirac equation, verify the completeness relation 
+\begin{eqnarray}
+    \label{eq:completeness-spinors}
+    \sum_{s=1,2} u^{(s)} \overline{u}^{(s)} = \slashed{p} + m
+,\end{eqnarray}
+where $\slashed{p} = \gamma^{\mu}p_{\mu}$ and natural units are used.
+}
+
+The spinors
+\begin{eqnarray}
+    \label{eq:particle-spinors}
+    u^{(1)} = \sqrt{E + m}
+    \begin{pmatrix}
+        1 \\ 0 \\ \frac{p_{z}}{E + m} \\ \frac{p_{x} + ip_{y}}{E + m}
+    \end{pmatrix} 
+    \quad
+    u^{(2)} = 
+    \sqrt{E + m}
+    \begin{pmatrix}
+    0 \\ 1 \\ \frac{p_{x} - ip_{y}}{E + m} \\ - \frac{p_{z}}{E + m}
+    \end{pmatrix} 
+.\end{eqnarray}
+
+
+
+\prob{5}{
+In class we calculated the differential cross section for $e^{+}e^{-} \rightarrow \mu^{+}\mu^{-}$ and obtained 
+\begin{eqnarray}
+    \label{eq:e+e-mu+mu-_xsec}
+    \dv{\sigma}{\Omega} = \frac{\alpha^2}{4s}(1 + \cos^2{\theta})
+,\end{eqnarray}
+where $s$ is the total energy squared in the center of mass, $\theta$ is the angle between the $e^{-}$ and $\mu^{-}$ in the center of mass, and where we ignored the electron and muon masses.
+Redo the calculuation for $e^{+}e^{-} \rightarrow \tau^{+}\tau^{-}$ for an energy range in which the electron mass can be ignored, but no the $\tau$ mass .
+In particular, what is the factor by which the \textit{total} cross section is suppressed by the $\tau$ mass for the case in which the colliding electron and positron each have an energy of \SI{2}{\GeV}.
+}
+
+
+
+
+
+
+\end{document}
