@@ -228,16 +228,65 @@ where $\slashed{p} = \gamma^{\mu}p_{\mu}$ and natural units are used.
 The spinors
 \begin{eqnarray}
     \label{eq:particle-spinors}
-    u^{(1)} = \sqrt{E + m}
+    u^{(1)} = \sqrt{p^{0} + m}
     \begin{pmatrix}
-        1 \\ 0 \\ \frac{p_{z}}{E + m} \\ \frac{p_{x} + ip_{y}}{E + m}
+        \chi_1 \\ \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_1
     \end{pmatrix} 
     \quad
     u^{(2)} = 
-    \sqrt{E + m}
+    \sqrt{p^{0} + m}
     \begin{pmatrix}
-    0 \\ 1 \\ \frac{p_{x} - ip_{y}}{E + m} \\ - \frac{p_{z}}{E + m}
+        \chi_2 \\ \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_2
     \end{pmatrix} 
+,\end{eqnarray}
+where $\displaystyle \chi_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and $\displaystyle \chi_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$.
+For a generic spinor $u^{(s)}$
+\begin{align}
+    \label{eq:completeness-work}
+    u^{(s)} \overline{u}^{(s)} &= (p^{0} + m) 
+    \begin{pmatrix}
+        \chi_{s} \\ \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_{s}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \chi_{s}^{\dagger} & -\frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_{s}^{\dagger}
+    \end{pmatrix} \notag \\
+                               &= (p^{0} + m) 
+                               \begin{pmatrix}
+                                   \chi_{s} \chi_{s}^{\dagger} & - \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_{s} \chi_{s}^{\dagger} \\
+                                   \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \chi_{s} \chi_{s}^{\dagger} & - \frac{ (\boldsymbol{\sigma} \cdot \mathbf{p})^2 }{(p^{0} + m)^2} \chi_{s} \chi_{s}^{\dagger}
+                               \end{pmatrix} 
+.\end{align}
+Noting that $\sum_{s=1,2} \chi_{s}\chi_{s}^{\dagger} = 1$, we have
+\begin{align}
+    \label{eq:completeness-work-2}
+    \sum_{s=1,2} u^{(s)} \overline{u}^{(s)} &= (p^{0} + m)
+    \begin{pmatrix}
+        1 & -\frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \\
+        \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} & -\frac{ \mathbf{p}^2 }{(p^{0} + m)^2}
+    \end{pmatrix} 
+    =
+    (p^{0} + m)
+    \begin{pmatrix}
+        1 & -\frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} \\
+        \frac{ \boldsymbol{\sigma} \cdot \mathbf{p} }{p^{0} + m} & - \frac{p^{0} - m}{p^{0} + m}
+    \end{pmatrix} \notag \\
+                                            &=
+                                            \begin{pmatrix}
+                                                p^{0} + m & 0 \\
+                                                0 & -p^{0} + m
+                                            \end{pmatrix}
+                                            +
+                                            \begin{pmatrix}
+                                                0 & \boldsymbol{\sigma} \cdot \mathbf{p} \\
+                                                - \boldsymbol{\sigma} \cdot \mathbf{p} & 0
+                                            \end{pmatrix}
+.\end{align}
+Rearranging gives
+\begin{eqnarray}
+    \label{eq:completeness-result}
+    \eqbox{
+        \sum_{s=1,2} u^{(s)} \overline{u}^{(s)} = \gamma_0 p^{0} + \boldsymbol{\gamma} \cdot \mathbf{p} + m = \gamma_{\mu}p^{\mu} + m = \slashed{p} + m
+}
 .\end{eqnarray}
 
 
@@ -249,10 +298,52 @@ In class we calculated the differential cross section for $e^{+}e^{-} \rightarro
     \dv{\sigma}{\Omega} = \frac{\alpha^2}{4s}(1 + \cos^2{\theta})
 ,\end{eqnarray}
 where $s$ is the total energy squared in the center of mass, $\theta$ is the angle between the $e^{-}$ and $\mu^{-}$ in the center of mass, and where we ignored the electron and muon masses.
-Redo the calculuation for $e^{+}e^{-} \rightarrow \tau^{+}\tau^{-}$ for an energy range in which the electron mass can be ignored, but no the $\tau$ mass .
+Redo the calculuation for $e^{+}e^{-} \rightarrow \tau^{+}\tau^{-}$ for an energy range in which the electron mass can be ignored, but not the $\tau$ mass .
 In particular, what is the factor by which the \textit{total} cross section is suppressed by the $\tau$ mass for the case in which the colliding electron and positron each have an energy of \SI{2}{\GeV}.
 }
 
+We worked out the unpolarized squared amplitude for the process $2 ~ \mbox{leptons} \rightarrow 2~\mbox{leptons}$ to be
+\begin{eqnarray}
+    \label{eq:lep-ampsq}
+    \Big| \sum_{\mbox{\tiny spin}} \mathcal{M}_{i} \Big|^2 = \frac{g^{4}}{4s} L_{\mu\nu}^{e} L_{\tau}^{\mu\nu}
+,\end{eqnarray}
+where the unpolarized leptonic tensor for an arbitrary lepton appears generically as 
+\begin{align}
+    \label{eq:lep-tensor}
+    L_{\mu\nu} &= \Tr\big[ \gamma^{\mu}(\slashed{p} + m)\gamma^{\nu}(\slashed{k} + m) \big] \notag \\
+               &= \Tr\big[ \gamma^{\mu}\slashed{p}\gamma^{\nu}\slashed{k} \big] + m \Big[ \Tr\big[ \gamma^{\mu}\slashed{p}\gamma^{\nu} \big] + \Tr\big[ \gamma^{\mu}\gamma^{\nu}\slashed{k} \big] \Big] + m^2 \Tr\big[ \gamma^{\mu}\gamma^{\nu} \big] \notag \\
+               &= 4( p^{\mu}k^{\nu} + k^{\mu}p^{\nu} - (p \cdot k - m^2) g^{\mu\nu} )
+,\end{align}
+where $p$ and $k$ are the incoming and outgoing momenta of the lepton leg.
+In the kinematic regime specified in the problem statement we have that
+\begin{align}
+    \label{eq:lep-ampsq-2}
+    \Big| \sum_{\mbox{\tiny spin}} \mathcal{M}_{i} \Big|^2 =& \frac{4g^{4}}{s} ( p_{e^{-}}^{\mu} p_{e^{+}}^{\nu} + p_{e^{-}}^{\mu} p_{e^{+}}^{\nu} - p_{e^{-}} \cdot p_{e^{+}} g^{\mu\nu} ) \times \notag \\
+    &( p^{\tau^{-}}_{\mu} p^{\tau^{+}}_{\nu} + p^{\tau^{-}}_{\mu} p^{\tau^{+}}_{\nu} - (p_{\tau^{-}} \cdot p_{\tau^{+}} - m_{\tau}^2) g^{\mu\nu} ) \notag \\
+    &= \frac{8g^{4}}{s} \big[ (p_{e^{-}} \cdot p_{\tau^{+}})(p_{e^{+}} \cdot p_{\tau^{-}}) + (p_{e^{-}} \cdot p_{\tau^{-}})(p_{e^{+}} \cdot p_{\tau^{+}}) - ( p_{e^{-}} \cdot p_{e^{+}} ) m_{\tau}^2 \big] \notag \\
+    &= \frac{8g^{4}}{s} \big[ ( E E' + p p' \cos{\theta} )^2 + ( E E' - p p'\cos{\theta} )^2  - m_{\tau}^2( E^2 + p^2 ) \big]
+.\end{align}
+Note that from the conservation of energy, we must have $E = E'$ and $p' = \sqrt{E^2 -  m_{\tau}^2}$, where $p = E$ since we neglect the electron mass.
+Expanding, cancelling, and simplifying we find
+\begin{eqnarray}
+    \label{eq:lep-ampsq-3}
+    \Big| \sum_{\mbox{\tiny spin}} \mathcal{M}_{i} \Big|^2 = \frac{16 (4\pi)^2 \alpha^2 E^2}{s} (E^2 - m_{\tau}^2) (1 + \cos^2{\theta})
+,\end{eqnarray}
+where we used the fact that the coupling constant $g = e = \sqrt{4 \pi \alpha}$, so $g^{4} = (4 \pi)^2 \alpha^2$.
+Thus, in the center of mass frame, the cross section is
+\begin{align}
+    \label{eq:xsec-etau}
+    \dv{\sigma}{\Omega} &= \frac{1}{4} \frac{1}{64 \pi^2 (4E^2)} \frac{\sqrt{E^2 - m_{\tau}^2}}{E} \frac{256 \pi^2 \alpha^2 E^2}{s} (E^2 - m_{\tau}^2)(1 + \cos^2{\theta}) \notag \\
+                        &= \eqbox{ \frac{\alpha^2}{4s} (1 + \cos^2{\theta}) \Big[ 1 - \Big(\frac{m_{\tau}}{E} \Big)^2 \Big]^{3/2} }
+.\end{align}
+The suppression factor is the last factor in the cross section.
+
+If we have $E = \SI{2}{\GeV}$ then the suppression factor is
+\begin{eqnarray}
+    \label{eq:suppression-factor}
+    \Big[ 1 - \Big( \frac{m_{\tau}}{E} \Big)^2 \Big]^{3/2} = 0.0967
+,\end{eqnarray}
+which means that the $e^{+}e^{-} \rightarrow \tau^{+}\tau^{-}$ cross section is only about 10\% of the $e^{+}e^{-} \rightarrow \mu^{+}\mu^{-}$ cross section.
 
 
 
