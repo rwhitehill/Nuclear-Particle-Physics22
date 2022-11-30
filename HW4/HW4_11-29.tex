@@ -144,6 +144,14 @@ Its coupling will be proportional to the Higgs mass divided by the $W$ mass, i.e
 From dimensional analysis, how do you expect the Higgs decay width to vary with the unknown Higgs mass in this very high mass region?
 }
 
+The amplitude should have dimensions of momentum, and since the coupling parameter $g$ is dimensionless, we might expect that the amplitude $\mathcal{M} \propto M_{H}^2$, meaning that the squared amplitude $| \mathcal{M} |^2 \propto M_{H}^{4}$.
+Thus, the decay width
+\begin{eqnarray}
+    \label{eq:decay-width}
+    \Gamma \propto | \mathcal{M} |^2 \propto M_{H}^{4}
+,\end{eqnarray}
+where the denominator carries a factor of $M_{W}^2$ such that the dimensions are correct, which makes some intuitive sense, since this would be quite a heavy particle, meaning that it would be more likely to decay quickly ($\tau 1/\Gamma$).
+
 \prob{3}{
 Show that $S^{\dagger}S \ne 1$ but $S^{\dagger}\gamma^{0}S = \gamma^{0}$.
 }
@@ -191,9 +199,9 @@ Thus,
 .\end{eqnarray}
 
 Checking the second identity, we have
-\begin{eqnarray}
+\begin{align}
     \label{eq:Sdagger-gamma0-S}
-    S^{\dagger} \gamma^{0} S = 
+    S^{\dagger} \gamma^{0} S &= 
     \begin{pmatrix}
         a_{+} & a_{-} \sigma_1 \\
         a_{-} \sigma_1 & a_{+}
@@ -210,9 +218,15 @@ Checking the second identity, we have
     \begin{pmatrix}
     a_{+}^2 - a_{-}^2\sigma_1^2 & 0 \\
     0 & -a_{+}^2 + a_{-}^2\sigma_1^2
-    \end{pmatrix} 
-    = \gamma^{0}
-.\end{eqnarray}
+    \end{pmatrix} \\
+                             &= 
+                             \begin{pmatrix}
+                             1 & 0 \\
+                             0 & -1
+                             \end{pmatrix}
+                             =  
+                             \gamma^{0}
+.\end{align}
 
 
 
